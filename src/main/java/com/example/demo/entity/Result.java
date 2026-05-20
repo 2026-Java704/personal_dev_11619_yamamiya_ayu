@@ -51,9 +51,8 @@ public class Result {
 		this.achievement = achievement;
 	}
 
-	public Result(Integer id, LocalDate recordDate, Integer stapleFood, Integer sideDish, Integer mainDish,
-			Integer milkDish, Integer fruitCount, String detailMemo, Integer achievement) {
-		this.id = id;
+	public Result(LocalDate recordDate, Integer stapleFood, Integer sideDish, Integer mainDish,
+			Integer milkDish, Integer fruitCount, String detailMemo) {
 		this.recordDate = recordDate;
 		this.stapleFood = stapleFood;
 		this.sideDish = sideDish;
@@ -61,7 +60,6 @@ public class Result {
 		this.milkDish = milkDish;
 		this.fruitCount = fruitCount;
 		this.detailMemo = detailMemo;
-		this.achievement = achievement;
 	}
 
 	public Integer getId() {

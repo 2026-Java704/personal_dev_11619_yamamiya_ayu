@@ -22,6 +22,23 @@
 				<th></th>
 				<th></th>
 			</tr>
+			
+<!--			表示されない-->
+			<tr th:each="record:${dishList}">
+				<td th:text="${record.recordDate}"></td>
+				<td th:text="${record.stapleFood}"></td>
+				<td th:text="${record.sideDish}"></td>
+				<td th:text="${record.mainDish}"></td>
+				<td th:text="${record.milkDish}"></td>
+				<td th:text="${record.FruitCount}"></td>
+				<td th:text="${record.detailMemo}"></td>
+				<td>
+					<form th:action="'/dishes/'+${result.id}+'/edit'" method="get">
+						<input type="submit" value="更新">
+					</form>
+				</td>
+				</tr>
+
 		</table>
 
 		<a href="/dishes/add"><button>新規登録</button></a><br>

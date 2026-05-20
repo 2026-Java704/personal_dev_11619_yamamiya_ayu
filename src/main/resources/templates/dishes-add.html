@@ -13,7 +13,7 @@
 			<tr>
 				<th>主食</th>
 				<td>
-					<select name="date" th:value="${date}">
+					<select name="staple_food" th:value="${staple_food}">
 						<option value="">--選択してください--</option>
 						<option th:each="i : ${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} +'つ'"></option>
 					</select>
@@ -22,7 +22,7 @@
 			<tr>
 				<th>副菜</th>
 				<td>
-					<select name="date" th:value="${date}">
+					<select name="staple_food" th:value="${staple_food}">
 						<option value="">--選択してください--</option>
 						<option th:each="i : ${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} +'つ'"></option>
 					</select>
@@ -31,7 +31,7 @@
 			<tr>
 				<th>主菜</th>
 				<td>
-					<select name="date" th:value="${date}">
+					<select name="mainDish" th:value="${mainDish}">
 						<option value="">--選択してください--</option>
 						<option th:each="i : ${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} +'つ'"></option>
 					</select>
@@ -40,7 +40,7 @@
 			<tr>
 				<th>乳製品</th>
 				<td>
-					<select name="date" th:value="${date}">
+					<select name="milkDish" th:value="${milkDish}">
 						<option value="">--選択してください--</option>
 						<option th:each="i : ${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} +'つ'"></option>
 					</select>
@@ -49,7 +49,7 @@
 			<tr>
 				<th>果物</th>
 				<td>
-					<select name="date" th:value="${date}">
+					<select name="fruitCount" th:value="${fruitCount}">
 						<option value="">--選択してください--</option>
 						<option th:each="i : ${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} +'つ'"></option>
 					</select>

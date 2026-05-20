@@ -66,6 +66,7 @@ public class UserController {
 		}
 
 		// 「/dishes/result」へのリダイレクト
+		session.setAttribute("userId", userList.get(0).getUserId());
 		return "redirect:/dishes/result";
 	}
 
@@ -75,6 +76,7 @@ public class UserController {
 		return "user";
 	}
 
+	//新規会員登録
 	@PostMapping("/users/add")
 	public String store(
 			@RequestParam(defaultValue = "") String email,
