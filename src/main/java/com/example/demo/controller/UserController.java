@@ -65,8 +65,8 @@ public class UserController {
 			return "login";
 		}
 
-		// 「/items」へのリダイレクト
-		return "redirect:/dishes";
+		// 「/dishes/result」へのリダイレクト
+		return "redirect:/dishes/result";
 	}
 
 	//新規会員登録の表示
