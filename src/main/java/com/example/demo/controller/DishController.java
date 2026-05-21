@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.servlet.http.HttpSession;
@@ -31,8 +32,8 @@ public class DishController {
 	//一覧画面表示
 	@GetMapping("/dishes/result")
 	public String index(Model model) {
-		List<Result> dishList = resultRepository.findAll();
-		model.addAttribute("result", dishList);
+		List<Result> resultList = resultRepository.findAll();
+		model.addAttribute("results", resultList);
 		return "dishes-result";
 	}
 
@@ -54,10 +55,37 @@ public class DishController {
 			@RequestParam(defaultValue = "") String detailMemo,
 			Model model) {
 
+		List<String> errorList = new ArrayList<>();
+		if (stapleFood == null) {
+			errorList.add("主食を選択してください");
+		}
+		if (sideDish == null) {
+			errorList.add("副菜を選択してください");
+		}
+		if (mainDish == null) {
+			errorList.add("主菜を選択してください");
+		}
+		if (milkDish == null) {
+			errorList.add("乳製品を選択してください");
+		}
+		if (fruitCount == null) {
+			errorList.add("果物を選択してください");
+		}
+		if (errorList.size() > 0) {
+			model.addAttribute("errorList", errorList);
+			model.addAttribute("stapleFood", stapleFood);
+			model.addAttribute("sideDish", sideDish);
+			model.addAttribute("mainDish", mainDish);
+			model.addAttribute("milkDish", milkDish);
+			model.addAttribute("fruitCount", fruitCount);
+			return "dishes-add";
+		}
+
 		Integer userId = (Integer) session.getAttribute("userId");
 		Result result = new Result();
 
 		result.setUserId(userId);
+		result.setRecordDate(LocalDate.now());
 		result.setStapleFood(stapleFood);
 		result.setSideDish(sideDish);
 		result.setMainDish(mainDish);
@@ -70,9 +98,30 @@ public class DishController {
 
 	//メモ登録画面表示
 	@GetMapping("/dishes/note")
-	public String note() {
+	public String note(
+			@RequestParam(defaultValue = "") Integer stapleFood,
+			@RequestParam(defaultValue = "") Integer sideDish,
+			@RequestParam(defaultValue = "") Integer mainDish,
+			@RequestParam(defaultValue = "") Integer milkDish,
+			@RequestParam(defaultValue = "") Integer fruitCount,
+			Model model) {
+		model.addAttribute("stapleFood", stapleFood);
+		model.addAttribute("sideDish", sideDish);
+		model.addAttribute("mainDish", mainDish);
+		model.addAttribute("milkDish", milkDish);
+		model.addAttribute("fruitCount", fruitCount);
 		return "dishes-note";
+
 	}
+
+	//	//メモ登録機能
+	//	@PostMapping("/dishes/note")
+	//	public String addNote(
+	//			@RequestParam(defaultValue = "") String detailMemo,
+	//			Model model) {
+	//		
+	//		return "redirect:/dishes-add";
+	//	}
 
 	//更新画面表示
 	@GetMapping("/dishes/{id}/edit")
@@ -85,7 +134,7 @@ public class DishController {
 	}
 
 	//更新処理
-	@PostMapping("/dishes/{id}/add")
+	@PostMapping("/dishes/{id}/edit")
 	public String update(
 			@PathVariable Integer id,
 			@RequestParam(defaultValue = "") LocalDate recordDate,
@@ -108,6 +157,6 @@ public class DishController {
 		result.setAchievement(achievement);
 
 		resultRepository.save(result);
-		return "dishes-edit";
+		return "redirect:/dishes/result";
 	}
 }

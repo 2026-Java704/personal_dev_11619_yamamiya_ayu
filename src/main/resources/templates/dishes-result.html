@@ -10,6 +10,7 @@
 	<main>
 		<h1>登録内容一覧</h1>
 		<table border="1">
+
 			<tr>
 				<th>日付</th>
 				<th>主食</th>
@@ -19,12 +20,10 @@
 				<th>果物</th>
 				<th>メモ</th>
 				<th>点数</th>
-				<th></th>
-				<th></th>
+				<th>更新</th>
 			</tr>
-			
-<!--			表示されない-->
-			<tr th:each="record:${dishList}">
+
+			<tr th:each="record:${results}">
 				<td th:text="${record.recordDate}"></td>
 				<td th:text="${record.stapleFood}"></td>
 				<td th:text="${record.sideDish}"></td>
@@ -32,22 +31,16 @@
 				<td th:text="${record.milkDish}"></td>
 				<td th:text="${record.FruitCount}"></td>
 				<td th:text="${record.detailMemo}"></td>
+				<td th:text="${record.achievement}"></td>
 				<td>
-					<form th:action="'/dishes/'+${result.id}+'/edit'" method="get">
+					<form th:action="'/dishes/'+${record.id}+'/edit'" method="get">
 						<input type="submit" value="更新">
 					</form>
 				</td>
-				</tr>
-
+			</tr>
 		</table>
-
-		<a href="/dishes/add"><button>新規登録</button></a><br>
+		<a href="/dishes/add">新規登録</a><br>
 		<a href="/logout">ログアウト</a>
-
-		</form>
 	</main>
-
-
 </body>
-
 </html>
