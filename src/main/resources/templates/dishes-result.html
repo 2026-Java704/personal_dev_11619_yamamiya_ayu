@@ -4,11 +4,15 @@
 <head>
 	<meta charset="UTF-8">
 	<title>食事バランスガイド</title>
+	<link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
 	<main>
-		<h1>登録内容一覧</h1>
+		<header>
+			<h1>食事バランスガイド</h1>
+		</header>
+		<h2>登録内容一覧</h2>
 		<table border="1">
 
 			<tr>
@@ -25,11 +29,26 @@
 
 			<tr th:each="record:${results}">
 				<td th:text="${record.recordDate}"></td>
-				<td th:text="${record.stapleFood}"></td>
-				<td th:text="${record.sideDish}"></td>
-				<td th:text="${record.mainDish}"></td>
-				<td th:text="${record.milkDish}"></td>
-				<td th:text="${record.FruitCount}"></td>
+				<td>
+					<span th:text="${record.stapleFood} + つ"></span><br>
+					<span th:text="${record.stapleFood >= 5 && record.stapleFood <= 7 ? '〇' : '✕'} "></span>
+				</td> 
+				<td>
+					<span th:text="${record.sideDish} + つ"></span><br>
+					<span th:text="${record.sideDish >= 5 && record.sideDish <= 6 ? '〇' : '✕'} "></span>
+				</td>
+				<td>
+					<span th:text="${record.mainDish} + つ"></span><br>
+					<span th:text="${record.mainDish >= 5 && record.mainDish <= 7 ? '〇' : '✕'} "></span>
+				</td>
+				<td>
+					<span th:text="${record.milkDish} + つ"></span><br>
+					<span th:text="${record.milkDish >= 5 && record.milkDish <= 7 ? '〇' : '✕'} "></span>
+				</td>
+				<td>
+					<span th:text="${record.fruitCount} + つ"></span><br>
+					<span th:text="${record.fruitCount >= 5 && record.fruitCount <= 7 ? '〇' : '✕'} "></span>
+				</td>
 				<td th:text="${record.detailMemo}"></td>
 				<td th:text="${record.achievement}"></td>
 				<td>
@@ -43,4 +62,5 @@
 		<a href="/logout">ログアウト</a>
 	</main>
 </body>
+
 </html>

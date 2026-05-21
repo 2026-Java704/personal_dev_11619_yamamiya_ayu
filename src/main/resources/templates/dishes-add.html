@@ -4,22 +4,29 @@
 <head>
 	<meta charset="UTF-8">
 	<title>食事バランスガイド</title>
+	<link rel="stylesheet" href="/css/style.css">
 </head>
 
-<body></body>>
-	<formmain>
-		<h1>登録</h1>
+<body>
+	<header>
+			<h1>食事バランスガイド</h1>
+		</header>
+	<main>
+		
+		<h2>新規会員登録</h2>
 		<table border="1">
 			<form action="/dishes/add" method="post">
 				<ul th:if="${errorList}" class="error">
-								<li th:each="error:${errorList}" th:text="${error}"></li>
-							</ul>
+					<li th:each="error:${errorList}" th:text="${error}"></li>
+				</ul>
+				<input type="hidden" name="detailMemo" th:value="${detailMemo}">
 				<tr>
 					<th>主食</th>
 					<td>
-						<select name="stapleFood" th:value="${stapleFood}">
+						<select name="stapleFood"  th:value="${stapleFood}">
 							<option value="">--選択してください--</option>
-							<option th:each="i : ${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} +'つ'">
+							<option th:each="i : ${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} +'つ'"
+								th:selected="${i == stapleFood}">
 							</option>
 						</select>
 					</td>
@@ -27,9 +34,10 @@
 				<tr>
 					<th>副菜</th>
 					<td>
-						<select name="sideDish" th:value="${sideDish}">
+						<select name="sideDish"  th:value="${sideDish}">
 							<option value="">--選択してください--</option>
-							<option th:each="i : ${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} +'つ'">
+							<option th:each="i : ${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} +'つ'"
+								th:selected="${i == sideDish}">
 							</option>
 						</select>
 					</td>
@@ -37,9 +45,10 @@
 				<tr>
 					<th>主菜</th>
 					<td>
-						<select name="mainDish" th:value="${mainDish}">
+						<select name="mainDish"  th:value="${mainDish}">
 							<option value="">--選択してください--</option>
-							<option th:each="i : ${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} +'つ'">
+							<option th:each="i : ${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} +'つ'"
+								th:selected="${i == mainDish}">
 							</option>
 						</select>
 					</td>
@@ -47,9 +56,10 @@
 				<tr>
 					<th>乳製品</th>
 					<td>
-						<select name="milkDish" th:value="${milkDish}">
+						<select name="milkDish"  th:value="${milkDish}">
 							<option value="">--選択してください--</option>
-							<option th:each="i : ${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} +'つ'">
+							<option th:each="i : ${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} +'つ'"
+								th:selected="${i == milkDish}">
 							</option>
 						</select>
 					</td>
@@ -57,24 +67,25 @@
 				<tr>
 					<th>果物</th>
 					<td>
-						<select name="fruitCount" th:value="${fruitCount}">
+						<select name="fruitCount"  th:value="${fruitCount}">
 							<option value="">--選択してください--</option>
-							<option th:each="i : ${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} +'つ'">
+							<option th:each="i : ${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} +'つ'"
+								th:selected="${i == fruitCount}">
 							</option>
 						</select>
 					</td>
 				</tr>
 		</table>
-		
 		<button type="submit" formmethod="get" formaction="/dishes/note">
 			詳細登録
 		</button>
-		<br>
+		<br><br>
 		<button type="submit">
 			登録
 		</button>
-		</form>
-		<a href="dishes-add">一覧に戻る</a>
+		</form><br><br>
+
 		</main>
 </body>
+
 </html>

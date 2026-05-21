@@ -4,24 +4,29 @@
 <head>
 	<meta charset="UTF-8">
 	<title>食事バランスガイド</title>
+	<link rel="stylesheet" href="/css/style.css">
 </head>
 
 <body>
-	<h1>食事内容詳細</h1>
+	<header>
+		<h1>食事バランスガイド</h1>
+	</header>
+	<main>
+	<h2>食事内容詳細</h2>
 
-		<form action="/dishes/add" method="post">
+	<form action="/dishes/add" method="post">
 		<input type="hidden" name="stapleFood" th:value="${stapleFood}">
 		<input type="hidden" name="sideDish" th:value="${sideDish}">
 		<input type="hidden" name="mainDish" th:value="${mainDish}">
 		<input type="hidden" name="milkDish" th:value="${milkDish}">
 		<input type="hidden" name="fruitCount" th:value="${fruitCount}">
-		<input type="submit" value="登録">
-		
-		<textarea name="detailMemo" placeholder="主食：コメ">
-		</textarea><br></form>
+
+		<textarea name="detailMemo" th:value="${detailMemo}" placeholder="主食：コメ">
+		</textarea>
+		<br><button>更新</button>
 	</form>
-	
 	<a href="/dishes/result">一覧に戻る</a><br>
+</main>
 </body>
 
 </html>
