@@ -59,3 +59,13 @@ button {
 button:hover {
 	background-color: #f1b2b2;
 }
+
+.ok {
+    color: rgb(255, 0, 0);
+    font-weight: bold;
+}
+
+.ng {
+    color: rgb(0, 0, 255);
+    font-weight: bold;
+}

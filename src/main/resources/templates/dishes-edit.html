@@ -13,13 +13,20 @@
 	</header>
 	<main>
 		<h2>更新</h2>
+
 		<form th:action="@{/dishes/{id}/edit(id=${result.id})}" method="post">
 			<ul th:if="${errorList != null}">
 				<li th:each="error : ${errorList}" th:text="${error}"></li>
 			</ul>
-			
+
 			<table border="1">
-				
+
+				<tr>
+					<th>日付</th>
+					<td>
+						<input type="date" name="recordDate" th:value="${result.recordDate}">
+					</td>
+				</tr>
 				<tr>
 					<th>主食</th>
 					<td>
@@ -93,6 +100,8 @@
 		<br>
 		<a href="/dishes/result">一覧に戻る</a>
 	</main>
+	<hr>
+	<footer th:replace="~{footer}"></footer>
 </body>
 
 </html>

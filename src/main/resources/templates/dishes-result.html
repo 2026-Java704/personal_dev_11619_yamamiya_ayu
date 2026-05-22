@@ -25,29 +25,37 @@
 				<th>メモ</th>
 				<th>点数</th>
 				<th>更新</th>
+				<th>削除</th>
 			</tr>
 
 			<tr th:each="record:${results}">
-				<td th:text="${record.recordDate}"></td>
+				<td th:text="${record.recordDate}">
+				</td>
 				<td>
 					<span th:text="${record.stapleFood} + つ"></span><br>
-					<span th:text="${record.stapleFood >= 5 && record.stapleFood <= 7 ? '〇' : '✕'} "></span>
-				</td> 
+					<span th:text="${record.stapleFood >= 5 && record.stapleFood <= 7 ? '〇' : '✕'}"
+						th:classappend="${record.stapleFood >= 5 && record.stapleFood <= 7 ? 'ok' : 'ng'}">
+					</span>
+				</td>
 				<td>
 					<span th:text="${record.sideDish} + つ"></span><br>
-					<span th:text="${record.sideDish >= 5 && record.sideDish <= 6 ? '〇' : '✕'} "></span>
+					<span th:text="${record.sideDish >= 5 && record.sideDish <= 6 ? '〇' : '✕'} "
+						th:classappend="${record.sideDish >= 5 && record.sideDish <= 6 ? 'ok' : 'ng'}"></span>
 				</td>
 				<td>
 					<span th:text="${record.mainDish} + つ"></span><br>
-					<span th:text="${record.mainDish >= 5 && record.mainDish <= 7 ? '〇' : '✕'} "></span>
+					<span th:text="${record.mainDish >= 3 && record.mainDish <= 5 ? '〇' : '✕'} "
+						th:classappend="${record.mainDish >= 3 && record.mainDish <= 5 ? 'ok' : 'ng'}"></span>
 				</td>
 				<td>
 					<span th:text="${record.milkDish} + つ"></span><br>
-					<span th:text="${record.milkDish >= 5 && record.milkDish <= 7 ? '〇' : '✕'} "></span>
+					<span th:text="${record.milkDish == 2 ? '〇' : '✕'} "
+						th:classappend="${record.milkDish == 2 ? 'ok' : 'ng'}"></span>
 				</td>
 				<td>
 					<span th:text="${record.fruitCount} + つ"></span><br>
-					<span th:text="${record.fruitCount >= 5 && record.fruitCount <= 7 ? '〇' : '✕'} "></span>
+					<span th:text="${record.fruitCount == 2 ? '〇' : '✕'} "
+						th:classappend="${record.fruitCount == 2 ? 'ok' : 'ng'}"></span>
 				</td>
 				<td th:text="${record.detailMemo}"></td>
 				<td th:text="${record.achievement}"></td>
@@ -56,11 +64,20 @@
 						<input type="submit" value="更新">
 					</form>
 				</td>
+				<td>
+					<form th:action="'/dishes/'+${record.id}+'/delete'" method="post">
+						<input type="submit" value="削除">
+					</form>
+				</td>
+
 			</tr>
 		</table>
 		<a href="/dishes/add">新規登録</a><br>
 		<a href="/logout">ログアウト</a>
 	</main>
+	</main>
+	<hr>
+	<footer th:replace="~{footer}"></footer>
 </body>
 
 </html>

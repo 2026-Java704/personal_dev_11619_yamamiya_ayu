@@ -14,18 +14,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.entity.Result;
-import com.example.demo.repository.DishRepository;
 import com.example.demo.repository.ResultRepository;
 
 @Controller
 public class DishController {
+
 	private final HttpSession session;
-	private final DishRepository dishRepository;
 	private final ResultRepository resultRepository;
 
-	public DishController(HttpSession session, DishRepository dishRepository, ResultRepository resultRepository) {
+	public DishController(HttpSession session, ResultRepository resultRepository) {
 		this.session = session;
-		this.dishRepository = dishRepository;
 		this.resultRepository = resultRepository;
 	}
 
@@ -97,6 +95,7 @@ public class DishController {
 				milkDish, fruitCount);
 		result.setAchievement(achievement);
 		resultRepository.save(result);
+
 		return "redirect:/dishes/result";
 	}
 
@@ -108,12 +107,14 @@ public class DishController {
 			@RequestParam(defaultValue = "") Integer mainDish,
 			@RequestParam(defaultValue = "") Integer milkDish,
 			@RequestParam(defaultValue = "") Integer fruitCount,
+			@RequestParam(defaultValue = "") String detailMemo,
 			Model model) {
 		model.addAttribute("stapleFood", stapleFood);
 		model.addAttribute("sideDish", sideDish);
 		model.addAttribute("mainDish", mainDish);
 		model.addAttribute("milkDish", milkDish);
 		model.addAttribute("fruitCount", fruitCount);
+		model.addAttribute("detailMemo", detailMemo);
 		return "dishes-note";
 
 	}
@@ -132,13 +133,13 @@ public class DishController {
 	@PostMapping("/dishes/{id}/edit")
 	public String update(
 			@PathVariable Integer id,
+			@RequestParam(defaultValue = "") LocalDate recordDate,
 			@RequestParam(required = false) Integer stapleFood,
 			@RequestParam(required = false) Integer sideDish,
 			@RequestParam(required = false) Integer mainDish,
 			@RequestParam(required = false) Integer milkDish,
 			@RequestParam(required = false) Integer fruitCount,
 			@RequestParam(defaultValue = "") String detailMemo,
-			@RequestParam(required = false) Integer achievement,
 			Model model) {
 
 		Result result = resultRepository.findById(id).get();
@@ -168,7 +169,6 @@ public class DishController {
 			result.setMilkDish(milkDish);
 			result.setFruitCount(fruitCount);
 			result.setDetailMemo(detailMemo);
-			result.setAchievement(achievement);
 
 			model.addAttribute("errorList", errorList);
 			model.addAttribute("result", result);
@@ -176,14 +176,15 @@ public class DishController {
 			return "dishes-edit";
 		}
 
+		result.setRecordDate(recordDate);
 		result.setStapleFood(stapleFood);
 		result.setSideDish(sideDish);
 		result.setMainDish(mainDish);
 		result.setMilkDish(milkDish);
 		result.setFruitCount(fruitCount);
 		result.setDetailMemo(detailMemo);
-		//		int achievement = sumAchievement(stapleFood, sideDish, mainDish,
-		//				milkDish, fruitCount);
+		int achievement = sumAchievement(stapleFood, sideDish, mainDish,
+				milkDish, fruitCount);
 		result.setAchievement(achievement);
 		resultRepository.save(result);
 
@@ -240,6 +241,14 @@ public class DishController {
 			achievement -= 8;
 		}
 		return achievement;
+	}
+
+	//削除処理
+	@PostMapping("/dishes/{id}/delete")
+	public String delete(
+			@PathVariable Integer id) {
+		resultRepository.deleteById(id);
+		return "redirect:/dishes/result";
 	}
 
 }

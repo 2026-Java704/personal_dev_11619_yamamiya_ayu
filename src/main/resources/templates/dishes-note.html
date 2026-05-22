@@ -20,6 +20,7 @@
 		<input type="hidden" name="mainDish" th:value="${mainDish}">
 		<input type="hidden" name="milkDish" th:value="${milkDish}">
 		<input type="hidden" name="fruitCount" th:value="${fruitCount}">
+<!--		<input type="hidden" name="detailMemo" th:value="${detailMemo}">-->
 
 		<textarea name="detailMemo" th:value="${detailMemo}" placeholder="主食：コメ">
 		</textarea>
@@ -27,6 +28,8 @@
 	</form>
 	<a href="/dishes/result">一覧に戻る</a><br>
 </main>
+<hr>
+	<footer th:replace="~{footer}"></footer>
 </body>
 
 </html>
