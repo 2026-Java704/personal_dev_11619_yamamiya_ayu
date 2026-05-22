@@ -101,6 +101,7 @@ public class UserController {
 		if (gender == null) {
 			addErrorList.add("性別を選択してください");
 		}
+
 		if (addErrorList.size() > 0) {
 			model.addAttribute("addErrorList", addErrorList);
 			model.addAttribute("email", email);

@@ -9,9 +9,7 @@
 
 <body>
 	<main>
-		<header>
-			<h1>食事バランスガイド</h1>
-		</header>
+		<header th:replace="~{header}"></header>
 		<h2>登録内容一覧</h2>
 		<table border="1">
 
@@ -57,7 +55,7 @@
 					<span th:text="${record.fruitCount == 2 ? '〇' : '✕'} "
 						th:classappend="${record.fruitCount == 2 ? 'ok' : 'ng'}"></span>
 				</td>
-				<td th:text="${record.detailMemo}"></td>
+				<td th:text="${record.detailMemo}" class="note"></td>
 				<td th:text="${record.achievement}"></td>
 				<td>
 					<form th:action="'/dishes/'+${record.id}+'/edit'" method="get">

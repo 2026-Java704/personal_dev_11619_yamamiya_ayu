@@ -61,11 +61,15 @@ button:hover {
 }
 
 .ok {
-    color: rgb(255, 0, 0);
+    color: blue;
     font-weight: bold;
 }
 
 .ng {
-    color: rgb(0, 0, 255);
+    color: red;
     font-weight: bold;
+}
+
+.note{
+	white-space: pre-wrap;
 }

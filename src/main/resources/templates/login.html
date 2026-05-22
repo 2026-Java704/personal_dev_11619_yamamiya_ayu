@@ -4,29 +4,38 @@
 <head>
 	<meta charset="UTF-8">
 	<title>食事バランスガイド</title>
-	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/login.css">
 </head>
-
 <body>
-	<header>
-		<h1>食事バランスガイド</h1>
-	</header>
-	<main>
+<main>
+	<div class="login">
 		<h2>ログイン</h2>
 		<form action="/login" method="post">
 			<ul th:if="${errorList}" class="error">
 				<li th:each="error:${errorList}" th:text="${error}"></li>
 			</ul>
+			
+				<div class="form-group">
+					<label for="email" class="form-label">メールアドレス</label>
+					<input type="text" name="email" th:value="${email}" class="form-control"
+						placeholder="your@email.com">
+				</div>
 
-			<input type="text" name="email" th:value="${email}" placeholder="メールアドレス"><br>
-			<input type="password" name="password" th:value="${password}" placeholder="パスワード"><br>
-			<button>ログイン</button>
-			<br> <span th:text="${message}" style="color: red"></span>
+				<div class="form-group">
+					<label for="password" class="form-label">パスワード</label>
+					<input type="password" name="password" th:value="${password}" class="form-control"
+						placeholder="パスワードを入力">
+				</div>
+
+				<button type="submit" class="btn-login">ログイン</button>
+				<br> <span th:text="${message}" style="color: red"></span>
+			
+			<div class="new-user">
+				<a href="/users/add">新規会員登録はこちら</a>
+			</div>
+			</body>
 		</form>
-		<br>
-		<a href="/users/add">新規会員登録はこちら</a>
-	</main>
-
+	</div>
+</main>
 </body>
-
 </html>

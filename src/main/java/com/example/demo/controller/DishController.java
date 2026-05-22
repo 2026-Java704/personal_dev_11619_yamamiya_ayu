@@ -30,7 +30,8 @@ public class DishController {
 	//一覧画面表示
 	@GetMapping("/dishes/result")
 	public String index(Model model) {
-		List<Result> resultList = resultRepository.findAll();
+		Integer userId = (Integer) session.getAttribute("userId");
+		List<Result> resultList = resultRepository.findByUserId(userId);
 		model.addAttribute("results", resultList);
 		return "dishes-result";
 	}

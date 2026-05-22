@@ -6,12 +6,9 @@
 	<title>食事バランスガイド</title>
 	<link rel="stylesheet" href="/css/style.css">
 </head>
-
 <body>
-	<header>
-		<h1>食事バランスガイド</h1>
-	</header>
 	<main>
+		<div class="login">
 		<h2>新規登録</h2>
 		<form action="/users/add" method="post">
 			<ul th:if="${addErrorList}" class="error">
@@ -20,7 +17,7 @@
 			<input type="text" name="email" th:value="${email}" placeholder="メールアドレス"><br>
 			<input type="text" name="name" th:value="${name}" placeholder="名前"><br>
 			<input type="text" name="password" th:value="${password}" placeholder="パスワード"><br>
-			<input type="text" name="age" th:value="${age}" placeholder="年齢"><br>
+			<input type="number" name="age" th:value="${age}" placeholder="年齢"><br>
 			<select name="gender" th:value="${gender}" th:selected="${gender}">
 
 				<option value="">--選択してください--</option>
@@ -30,6 +27,7 @@
 			</select><br><br>
 			<button>登録</button>
 		</form>
+		</div>
 	</main>
 </body>
 
