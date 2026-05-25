@@ -1,0 +1,15 @@
+footer {
+	width: 100%;
+	height: 100px;
+	background: rgb(126, 180, 48);
+	
+}
+
+small {
+	
+	align-items: center;
+	/* 上下中央に揃える */
+	box-sizing: border-box;
+	color: rgb(255, 255, 255);
+	
+}

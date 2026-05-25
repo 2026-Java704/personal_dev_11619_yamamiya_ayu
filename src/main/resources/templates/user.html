@@ -4,28 +4,46 @@
 <head>
 	<meta charset="UTF-8">
 	<title>食事バランスガイド</title>
-	<link rel="stylesheet" href="/css/style.css">
+	<link rel="stylesheet" href="/css/login.css">
 </head>
+
 <body>
 	<main>
 		<div class="login">
-		<h2>新規登録</h2>
-		<form action="/users/add" method="post">
-			<ul th:if="${addErrorList}" class="error">
-				<li th:each="error:${addErrorList}" th:text="${error}"></li>
-			</ul>
-			<input type="text" name="email" th:value="${email}" placeholder="メールアドレス"><br>
-			<input type="text" name="name" th:value="${name}" placeholder="名前"><br>
-			<input type="text" name="password" th:value="${password}" placeholder="パスワード"><br>
-			<input type="number" name="age" th:value="${age}" placeholder="年齢"><br>
-			<select name="gender" th:value="${gender}" th:selected="${gender}">
+			<h2>新規会員登録</h2>
+			<form action="/users/add" method="post">
+				<ul th:if="${addErrorList}" class="error">
+					<li th:each="error:${addErrorList}" th:text="${error}"></li>
+				</ul>
 
-				<option value="">--選択してください--</option>
+				<div class="form-group">
+					<input type="text" name="email" th:value="${email}" class="form-control"
+						placeholder="your@email.com"><br>
+				</div>
+
+				<div class="form-group">
+					<input type="text" name="name" th:value="${name}" class="form-control" placeholder="名前"><br>
+				</div>
+
+				<div class="form-group">
+					<input type="text" name="password" th:value="${password}" class="form-control"
+						placeholder="パスワード"><br>
+				</div>
+
+				<div class="form-group">
+				<input type="number" name="age" th:value="${age}" class="form-control"
+				placeholder="年齢"><br>
+		</div>
+
+		<div class="form-group">
+			<select name="gender" th:value="${gender}" class="form-control">
+				<option value="">--性別--</option>
 				<option value="1">男</option>
 				<option value="2">女</option>
+		</div>
 
-			</select><br><br>
-			<button>登録</button>
+		</select><br><br>
+		<button class="btn-login">登録</button>
 		</form>
 		</div>
 	</main>

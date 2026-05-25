@@ -8,71 +8,70 @@
 </head>
 
 <body>
+	<header th:replace="~{header}"></header>
 	<main>
-		<header th:replace="~{header}"></header>
-		<h2>登録内容一覧</h2>
-		<table border="1">
+		<div class="box">
+			<h2>登録内容一覧</h2>
+			<table border="1">
 
-			<tr>
-				<th>日付</th>
-				<th>主食</th>
-				<th>副菜</th>
-				<th>主菜</th>
-				<th>乳製品</th>
-				<th>果物</th>
-				<th>メモ</th>
-				<th>点数</th>
-				<th>更新</th>
-				<th>削除</th>
-			</tr>
+				<tr>
+					<th>日付</th>
+					<th>主食</th>
+					<th>副菜</th>
+					<th>主菜</th>
+					<th>乳製品</th>
+					<th>果物</th>
+					<th>メモ</th>
+					<th>点数</th>
+					<th></th>
+					<th></th>
+				</tr>
 
-			<tr th:each="record:${results}">
-				<td th:text="${record.recordDate}">
-				</td>
-				<td>
-					<span th:text="${record.stapleFood} + つ"></span><br>
-					<span th:text="${record.stapleFood >= 5 && record.stapleFood <= 7 ? '〇' : '✕'}"
-						th:classappend="${record.stapleFood >= 5 && record.stapleFood <= 7 ? 'ok' : 'ng'}">
-					</span>
-				</td>
-				<td>
-					<span th:text="${record.sideDish} + つ"></span><br>
-					<span th:text="${record.sideDish >= 5 && record.sideDish <= 6 ? '〇' : '✕'} "
-						th:classappend="${record.sideDish >= 5 && record.sideDish <= 6 ? 'ok' : 'ng'}"></span>
-				</td>
-				<td>
-					<span th:text="${record.mainDish} + つ"></span><br>
-					<span th:text="${record.mainDish >= 3 && record.mainDish <= 5 ? '〇' : '✕'} "
-						th:classappend="${record.mainDish >= 3 && record.mainDish <= 5 ? 'ok' : 'ng'}"></span>
-				</td>
-				<td>
-					<span th:text="${record.milkDish} + つ"></span><br>
-					<span th:text="${record.milkDish == 2 ? '〇' : '✕'} "
-						th:classappend="${record.milkDish == 2 ? 'ok' : 'ng'}"></span>
-				</td>
-				<td>
-					<span th:text="${record.fruitCount} + つ"></span><br>
-					<span th:text="${record.fruitCount == 2 ? '〇' : '✕'} "
-						th:classappend="${record.fruitCount == 2 ? 'ok' : 'ng'}"></span>
-				</td>
-				<td th:text="${record.detailMemo}" class="note"></td>
-				<td th:text="${record.achievement}"></td>
-				<td>
-					<form th:action="'/dishes/'+${record.id}+'/edit'" method="get">
-						<input type="submit" value="更新">
-					</form>
-				</td>
-				<td>
-					<form th:action="'/dishes/'+${record.id}+'/delete'" method="post">
-						<input type="submit" value="削除">
-					</form>
-				</td>
+				<tr th:each="record:${results}">
+					<td th:text="${record.recordDate}">
+					</td>
+					<td>
+						<span th:text="${record.stapleFood} + つ"></span><br>
+						<span th:text="${record.stapleFood >= 5 && record.stapleFood <= 7 ? '〇' : '✕'}"
+							th:classappend="${record.stapleFood >= 5 && record.stapleFood <= 7 ? 'ok' : 'ng'}">
+						</span>
+					</td>
+					<td>
+						<span th:text="${record.sideDish} + つ"></span><br>
+						<span th:text="${record.sideDish >= 5 && record.sideDish <= 6 ? '〇' : '✕'} "
+							th:classappend="${record.sideDish >= 5 && record.sideDish <= 6 ? 'ok' : 'ng'}"></span>
+					</td>
+					<td>
+						<span th:text="${record.mainDish} + つ"></span><br>
+						<span th:text="${record.mainDish >= 3 && record.mainDish <= 5 ? '〇' : '✕'} "
+							th:classappend="${record.mainDish >= 3 && record.mainDish <= 5 ? 'ok' : 'ng'}"></span>
+					</td>
+					<td>
+						<span th:text="${record.milkDish} + つ"></span><br>
+						<span th:text="${record.milkDish == 2 ? '〇' : '✕'} "
+							th:classappend="${record.milkDish == 2 ? 'ok' : 'ng'}"></span>
+					</td>
+					<td>
+						<span th:text="${record.fruitCount} + つ"></span><br>
+						<span th:text="${record.fruitCount == 2 ? '〇' : '✕'} "
+							th:classappend="${record.fruitCount == 2 ? 'ok' : 'ng'}"></span>
+					</td>
+					<td th:text="${record.detailMemo}" class="note"></td>
+					<td th:text="${record.achievement}"></td>
+					<td>
+						<form th:action="'/dishes/'+${record.id}+'/edit'" method="get">
+							<button class="table-button">更新</button>
+						</form>
+					<td>
+						<form th:action="'/dishes/'+${record.id}+'/delete'" method="post">
+							<button class="table-button">削除</button>
+						</form>
+					</td>
 
-			</tr>
-		</table>
-		<a href="/dishes/add">新規登録</a><br>
-		<a href="/logout">ログアウト</a>
-	</main>
+				</tr>
+			</table>
+			<button class="normal"><a href="/dishes/add">新規登録</a><br></button>
+		</div>
 	</main>
 	<hr>
 	<footer th:replace="~{footer}"></footer>

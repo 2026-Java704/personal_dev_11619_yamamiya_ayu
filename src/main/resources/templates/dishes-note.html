@@ -8,27 +8,25 @@
 </head>
 
 <body>
-	<header>
-		<h1>食事バランスガイド</h1>
-	</header>
+	<header th:replace="~{header}"></header>
 	<main>
-	<h2>食事内容詳細</h2>
+		<div class="box">
+			<h2>食事内容詳細</h2>
 
-	<form action="/dishes/add" method="post">
-		<input type="hidden" name="stapleFood" th:value="${stapleFood}">
-		<input type="hidden" name="sideDish" th:value="${sideDish}">
-		<input type="hidden" name="mainDish" th:value="${mainDish}">
-		<input type="hidden" name="milkDish" th:value="${milkDish}">
-		<input type="hidden" name="fruitCount" th:value="${fruitCount}">
-<!--		<input type="hidden" name="detailMemo" th:value="${detailMemo}">-->
+			<form action="/dishes/add" method="post">
+				<input type="hidden" name="stapleFood" th:value="${stapleFood}">
+				<input type="hidden" name="sideDish" th:value="${sideDish}">
+				<input type="hidden" name="mainDish" th:value="${mainDish}">
+				<input type="hidden" name="milkDish" th:value="${milkDish}">
+				<input type="hidden" name="fruitCount" th:value="${fruitCount}">
+				<!--		<input type="hidden" name="detailMemo" th:value="${detailMemo}">-->
 
-		<textarea name="detailMemo" th:value="${detailMemo}"  placeholder="主食：コメ">
-		</textarea>
-		<br><button>更新</button>
-	</form>
-	<a href="/dishes/result">一覧に戻る</a><br>
-</main>
-<hr>
+				<textarea name="detailMemo" th:value="${detailMemo}" placeholder="主食：コメ"></textarea>
+				<br><button class="button-note">更新</button>
+			</form>
+		</div>
+	</main>
+	<hr>
 	<footer th:replace="~{footer}"></footer>
 </body>
 
