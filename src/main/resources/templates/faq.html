@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>よくある質問</title>
+	<link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+	<header th:replace="~{header}"></header>
+	<main>
+		<div class="field">
+			<div class="box-faq">
+				<h2>FAQ</h2><br>
+				<h3 style="color: rgb(128, 64, 0)">
+					<img src="https://illustration-free.net/thumb/svg/ifn0572.svg"style="color: red" class="question">「食事バランスガイド」とはなんですか？
+				</h3>
+				1日に、「何を」、「どれだけ」食べたらよいかを考える際の<br>
+				参考にしていただけるよう、食事の望ましい組み合わせと<br>
+				おおよその量をイラストでわかりやすく示したものです。<br>
+				健康で豊かな食生活の実現を目的に策定された「食生活指針」（平成12年3月）を<br>
+				具体的に行動に結びつけるものとして、<br>
+				平成17年6月に厚生労働省と農林水産省が決定しました。<br>
+				<h3 style="color: rgb(128, 64, 0)">
+					<img src="https://illustration-free.net/thumb/svg/ifn0572.svg" class="question"> 料理区分について教えてください。
+				</h3>
+
+				食事バランスガイドでは、毎日の食事を <br>
+				主食／副菜／主菜／牛乳・乳製品／果物 の5つに区分し<br>
+				区分ごとに「つ（SV)」という単位を用いています。<br><br>
+				<p><b>主食：</b>主に炭水化物の供給源であるごはん、パン、麺、パスタなどを<br>
+					主材料とする料理が含まれます。1つ（SV）＝主材料に由来する炭水化物約40g<br><br>
+					<b>副菜：</b>主にビタミン、ミネラル、食物繊維の供給源である野菜、いも<br>
+					豆類（大豆を除く）、きのこ、海藻などを主材料とする料理が含まれます。<br>
+					1つ（SV）＝主材料の重量約70g<br><br>
+					<b>主菜：</b>主にたんぱく質の供給源である肉、魚、卵、大豆および大豆製品などを主材料とする料理が含まれます。
+					1つ（SV）＝主材料に由来するたんぱく質約6g<br><br>
+					<b>牛乳・乳製品：</b>主にカルシウムの供給源である、牛乳、ヨーグルト<br>
+					チーズなどが含まれます。
+					1つ（SV）＝主材料に由来するカルシウム約100mg<br><br>
+					<b>果物：</b>主にビタミンC、カリウムなどの供給源である、りんご、みかんなどの<br>
+					果実及びすいか、いちごなどの果実的な野菜が含まれます。<br>
+					1つ（SV）＝主材料の重量約100g<br><br>
+				</p>
+
+				<h3 style="color: rgb(128, 64, 0)">
+					<img src="https://illustration-free.net/thumb/svg/ifn0572.svg" class="question"> 採点基準について教えてください。
+				</h3>
+				主食が5～7つ(SV)、副菜が5～6つ(SV)、主菜が3～5つ(SV)<br>
+				牛乳・乳製品や果物が2つ(SV)の基準内の時に〇、基準外の時に✕が表示されます。<br>
+				また、点数は不足or超過するごとに、1つ毎に4点ずつ減点しています。<br>
+				また、食事スタイル(配点12点)を含めると
+				100点満点でスコアを算出できます。<br><br>
+			</div>
+			<br>
+			<div class="box-faq">
+				<h3 style="color: rgb(128, 64, 0)">参考元</h3>
+				農林水産省 「食事バランスガイドについて」
+				<a href ="https://www.maff.go.jp/j/balance_guide/index.html">
+					https://www.maff.go.jp/j/balance_guide/index.html</a><br>
+				株式会社センス・イット・スマート「食事バランススコアとは？」
+				<a href="https://www.shokuiku.net/score/hyouka.html">
+					https://www.shokuiku.net/score/hyouka.html</a><br><br>
+			</div>
+		</div>
+	</main>
+	<hr>
+	<footer th:replace="~{footer}"></footer>
+</body>
+
+</html>

@@ -1,42 +1,78 @@
 body {
-  margin: 0;
-  padding: 0;
-  color: rgb(0, 0, 0);
-  font-family: 'Noto Sans JP', sans-serif;
-  background: #f6f5f4;
+	margin: 0;
+	padding: 0;
+	color: rgb(0, 0, 0);
+	font-family: 'Noto Sans JP', sans-serif;
+	background: #f6f5f4;
 }
+
 header {
-  width: 100%;
-  height: 100px;
-  background: rgb(126, 180, 48);
-  display: flex; /* flexboxを作る */
-  align-items: center; /* 上下中央に揃える */
-  justify-content: space-between; /* 両端に配置 */
-  padding-left: 30px;
-  padding-right: 30px;
-  position: fixed;
-  top: 0;
-  box-sizing: border-box;
-  color: rgb(255, 255, 255);
+	width: 100%;
+	height: 100px;
+	background: rgb(126, 180, 48);
+	display: flex;
+	/* flexboxを作る */
+	align-items: center;
+	/* 上下中央に揃える */
+	justify-content: space-between;
+	/* 両端に配置 */
+	padding-left: 30px;
+	padding-right: 30px;
+	position: fixed;
+	top: 0;
+	box-sizing: border-box;
+	color: rgb(255, 255, 255);
 }
 
 header h1 a {
 	color: rgb(255, 255, 255);
 	list-style: none;
-	  display: flex;
-	  text-decoration: none;
-}
-header ul {
-  list-style: none;
-  display: flex;
-}
-header ul li a {
-  padding: 10px 15px;
-  color: rgb(255, 255, 255);
-  text-decoration: none;
-  font-weight: bold;
-}
-header ul li a:hover {
-  text-decoration: underline;
+	display: flex;
+	text-decoration: none;
 }
 
+header ul {
+	list-style: none;
+	display: flex;
+}
+
+header li {
+	max-width: 100px;
+	display: inline-block;
+	/* インライン要素にすることで横に回り込む */
+	vertical-align: middle;
+	/* 上下中央に寄せる */
+}
+
+header ul li a {
+	padding: 10px 15px;
+	color: rgb(255, 255, 255);
+	text-decoration: none;
+	font-weight: bold;
+	display: inline-block;
+	/* インライン要素にすることで横に回り込む */
+	vertical-align: middle;
+	/* 上下中央に寄せる */
+	position: relative;
+	/*			今の位置を基準*/
+	top: 10px;
+	/*				上から10px */
+}
+
+header ul li a:hover {
+	text-decoration: underline;
+}
+
+.GIF {
+	width: 60%;
+	display: inline-block;
+/*				 インライン要素にすることで横に回り込む */
+				vertical-align: middle;
+/*				 上下中央に寄せる */
+		position: relative;  
+		position: relative;
+			/*			今の位置を基準*/
+			bottom: 10px;
+			/*				上から10px */
+
+}

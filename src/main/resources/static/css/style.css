@@ -34,6 +34,7 @@ main {
 	min-height: 50px;
 	padding-bottom: 20px;
 	padding-top: 130px;
+	margin: 0 auto;
 }
 
 .box {
@@ -46,18 +47,42 @@ main {
 	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
+.box-faq{
+	margin: 0 auto;
+		padding: 1rem;
+		padding-bottom: 1rem;
+		background: #fff;
+		border-radius: 12px;
+		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+	width: 45%;
+	
+	margin-right: auto;
+/*	//ここで中央寄せを指定する。*/
+	  margin-left : auto;
+}
+.box-faq h2 {
+	margin-right: auto;
+	  margin-left : auto;
+}
 
 
 table {
 	border-collapse: collapse;
-	margin: 20px auto;
+	margin: 30px auto;
+	/*	margin-top: 20px;*/
+	/*	margin-bottom: 70px;*/
 	min-width: 600px;
 	box-shadow: 0 0 15px -6px #00000073;
 }
 
 table th {
 	background: rgb(126, 180, 48);
+	min-width: 60px;
 	color: #ffffff;
+}
+
+table td {
+	padding: 3px;
 }
 
 table .table-button:hover {
@@ -80,7 +105,7 @@ table .table-button {
 
 /* 送信ボタン */
 button.normal {
-	width: 50%;
+	width: 40%;
 	padding: 12px;
 	background: linear-gradient(135deg, rgb(37, 75, 31), rgb(37, 75, 31));
 	color: white;
@@ -104,19 +129,30 @@ button.normal:hover {
 }
 
 button.button-note {
-	width: 25%;
-
+	min-width: 25%;
 	background-color: rgb(126, 180, 48);
 	color: white;
 	border: none;
-
 	font-size: 16px;
-
 	cursor: pointer;
 	transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 button.button-note:hover {
+	background-color: rgb(108, 153, 40);
+}
+
+.button-date {
+	background-color: rgb(126, 180, 48);
+	color: white;
+	border: none;
+	font-size: 16px;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+	border-radius: 8px;
+	padding: 4px 10px;
+}
+
+.button-date:hover {
 	background-color: rgb(108, 153, 40);
 }
 
@@ -151,6 +187,20 @@ textarea {
 }
 
 .picture {
-	width: 85%;
+	width: 110%;
 	height: auto;
+	padding-top: 10px;
 }
+
+.add-dish {
+	padding-top: 40px;
+}
+
+.question {
+	width: 4%;
+}
+
+.answer {
+	width: 4%;
+}
+

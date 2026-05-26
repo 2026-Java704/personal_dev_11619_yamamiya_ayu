@@ -12,7 +12,12 @@
 	<main>
 		<div class="box">
 			<h2>登録内容一覧</h2>
-			<table border="1">
+			
+			<form action="/dishes/result" method="get">
+				<input type="date" name="recordDate" class="form-control">
+				<button class="button-date">検索</button>
+			</form>
+				<table border="1">
 
 				<tr>
 					<th>日付</th>
@@ -31,7 +36,7 @@
 					<td th:text="${record.recordDate}">
 					</td>
 					<td>
-						<span th:text="${record.stapleFood} + つ"></span><br>
+						<span th:text="${record.stapleFood} + つ" ></span><br>
 						<span th:text="${record.stapleFood >= 5 && record.stapleFood <= 7 ? '〇' : '✕'}"
 							th:classappend="${record.stapleFood >= 5 && record.stapleFood <= 7 ? 'ok' : 'ng'}">
 						</span>
@@ -67,10 +72,9 @@
 							<button class="table-button">削除</button>
 						</form>
 					</td>
-
 				</tr>
 			</table>
-			<button class="normal"><a href="/dishes/add">新規登録</a><br></button>
+			<button class="normal"><a href="/dishes/add">新規登録</a></button>
 		</div>
 	</main>
 	<hr>

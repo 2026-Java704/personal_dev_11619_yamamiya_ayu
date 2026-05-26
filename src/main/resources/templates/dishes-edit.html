@@ -1,110 +1,120 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<xmlns:th="http: //www.thymeleaf.org">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.css" rel="stylesheet">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js" defer
+		type="text/javascript"></script>
 
-<head>
-	<meta charset="UTF-8">
-	<title>食事バランスガイド</title>
-	<link rel="stylesheet" href="/css/style.css">
-</head>
+	<head>
+		<meta charset="UTF-8">
+		<title>食事バランスガイド</title>
+		<link rel="stylesheet" href="/css/style.css">
+	</head>
 
-<body>
-	<header th:replace="~{header}"></header>
-	<main>
-		<div class="box">
-			<h2>更新</h2>
+	<body>
+		<header th:replace="~{header}"></header>
+		<main>
+			<div class="box">
+				<h2>更新</h2>
 
-			<form th:action="@{/dishes/{id}/edit(id=${result.id})}" method="post">
-				<ul th:if="${errorList != null}">
-					<li th:each="error : ${errorList}" th:text="${error}"></li>
-				</ul>
+				<form th:action="@{/dishes/{id}/edit(id=${result.id})}" method="post">
+					<ul th:if="${errorList != null}">
+						<li th:each="error : ${errorList}" th:text="${error}"></li>
+					</ul>
 
-				<div style="float:left;">
-					<img src="https://www.sakulife-ikari.com/wp-content/uploads/2021/05/food2102_7.png">
-				</div>
-				<table border="1">
+					<div style="float:left;">
+						<a href="https://www.sakulife-ikari.com/wp-content/uploads/2021/05/food2102_7.png"
+							data-lightbox="group"><img
+								src="https://www.sakulife-ikari.com/wp-content/uploads/2021/05/food2102_7.png" alt=""
+								class="picture"></a>
+						<!--						<img src="https://www.sakulife-ikari.com/wp-content/uploads/2021/05/food2102_7.png">-->
+					</div>
+					<table border="1">
 
-					<tr>
-						<th>日付</th>
-						<td>
-							<input type="date" name="recordDate" th:value="${result.recordDate}" class="form-control">
-						</td>
-					</tr>
-					<tr>
-						<th>主食</th>
-						<td>
-							<select name="stapleFood" class="form-control">
-								<option value="">--選択してください--</option>
-								<option th:each="i : ${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'"
-									th:selected="${i == result.stapleFood}">
-								</option>
-							</select>
-						</td>
-					</tr>
+						<tr>
+							<th>日付</th>
+							<td>
+								<input type="date" name="recordDate" th:value="${result.recordDate}"
+									class="form-control">
+							</td>
+						</tr>
+						<tr>
+							<th>主食</th>
+							<td>
+								<select name="stapleFood" class="form-control">
+									<option value="">--選択してください--</option>
+									<option th:each="i : ${#numbers.sequence(0,10)}" th:value="${i}"
+										th:text="${i} + 'つ'" th:selected="${i == result.stapleFood}">
+									</option>
+								</select>
+							</td>
+						</tr>
 
-					<tr>
-						<th>副菜</th>
-						<td>
-							<select name="sideDish" class="form-control">
-								<option value="">--選択してください--</option>
-								<option th:each="i : ${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'"
-									th:selected="${i == result.sideDish}">
-								</option>
-							</select>
-						</td>
-					</tr>
+						<tr>
+							<th>副菜</th>
+							<td>
+								<select name="sideDish" class="form-control">
+									<option value="">--選択してください--</option>
+									<option th:each="i : ${#numbers.sequence(0,10)}" th:value="${i}"
+										th:text="${i} + 'つ'" th:selected="${i == result.sideDish}">
+									</option>
+								</select>
+							</td>
+						</tr>
 
-					<tr>
-						<th>主菜</th>
-						<td>
-							<select name="mainDish" class="form-control">
-								<option value="">--選択してください--</option>
-								<option th:each="i : ${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'"
-									th:selected="${i == result.mainDish}">
-								</option>
-							</select>
-						</td>
-					</tr>
+						<tr>
+							<th>主菜</th>
+							<td>
+								<select name="mainDish" class="form-control">
+									<option value="">--選択してください--</option>
+									<option th:each="i : ${#numbers.sequence(0,10)}" th:value="${i}"
+										th:text="${i} + 'つ'" th:selected="${i == result.mainDish}">
+									</option>
+								</select>
+							</td>
+						</tr>
 
-					<tr>
-						<th>乳製品</th>
-						<td>
-							<select name="milkDish" class="form-control">
-								<option value="">--選択してください--</option>
-								<option th:each="i : ${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'"
-									th:selected="${i == result.milkDish}">
-								</option>
-							</select>
-						</td>
-					</tr>
+						<tr>
+							<th>乳製品</th>
+							<td>
+								<select name="milkDish" class="form-control">
+									<option value="">--選択してください--</option>
+									<option th:each="i : ${#numbers.sequence(0,10)}" th:value="${i}"
+										th:text="${i} + 'つ'" th:selected="${i == result.milkDish}">
+									</option>
+								</select>
+							</td>
+						</tr>
 
-					<tr>
-						<th>果物</th>
-						<td>
-							<select name="fruitCount" class="form-control">
-								<option value="">--選択してください--</option>
-								<option th:each="i : ${#numbers.sequence(0,10)}" th:value="${i}" th:text="${i} + 'つ'"
-									th:selected="${i == result.fruitCount}">
-								</option>
-							</select>
-						</td>
-					</tr>
+						<tr>
+							<th>果物</th>
+							<td>
+								<select name="fruitCount" class="form-control">
+									<option value="">--選択してください--</option>
+									<option th:each="i : ${#numbers.sequence(0,10)}" th:value="${i}"
+										th:text="${i} + 'つ'" th:selected="${i == result.fruitCount}">
+									</option>
+								</select>
+							</td>
+						</tr>
 
-					<tr>
-						<th>メモ</th>
-						<td>
-							<textarea name="detailMemo" rows="5" cols="30" th:text="${result.detailMemo}"></textarea>
-						</td>
-					</tr>
-				</table>
+						<tr>
+							<th>メモ</th>
+							<td>
+								<textarea name="detailMemo" rows="5" cols="30"
+									th:text="${result.detailMemo}"></textarea>
+							</td>
+						</tr>
+					</table>
+					<br>
+					<button class="normal">更新</button>
+				</form>
 				<br>
-				<button class="normal">更新</button>
-			</form>
-			<br>
 
-		</div>
-	</main>
-	<hr>
-	<footer th:replace="~{footer}"></footer>
-</body>
+			</div>
+		</main>
+		<hr>
+		<footer th:replace="~{footer}"></footer>
+	</body>
 
-</html>
+	</html>

@@ -2,7 +2,8 @@
 <xmlns:th="http://www.thymeleaf.org">
 	<link href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/css/lightbox.css" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js" defer></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js" defer type="text/javascript"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.4/js/lightbox.min.js" defer
+		type="text/javascript"></script>
 
 	<head>
 		<meta charset="UTF-8">
@@ -14,23 +15,25 @@
 		<header th:replace="~{header}"></header>
 		<main>
 			<div class="box">
-				<h2 >新規登録</h2>
+				<h2>新規登録</h2>
 
-				<table border="1">
-					<form action="/dishes/add" method="post">
 
-						<ul th:if="${errorList}" class="error">
-							<li th:each="error:${errorList}" th:text="${error}"></li>
-						</ul>
+				<form action="/dishes/add" method="post">
 
-						<div style="float:left;" >
-							<a href="https://www.sakulife-ikari.com/wp-content/uploads/2021/05/food2102_7.png" 
-							data-lightbox="group"><img src="https://www.sakulife-ikari.com/wp-content/uploads/2021/05/food2102_7.png"
-							 alt="" class="picture"></a>
-<!--							<img src="https://www.sakulife-ikari.com/wp-content/uploads/2021/05/food2102_7.png" class="picture">-->
-						</div>
+					<ul th:if="${errorList}" class="error">
+						<li th:each="error:${errorList}" th:text="${error}"></li>
+					</ul>
 
-						<div>
+					<div style="float:left;">
+						<a href="https://www.sakulife-ikari.com/wp-content/uploads/2021/05/food2102_7.png"
+							data-lightbox="group"><img
+								src="https://www.sakulife-ikari.com/wp-content/uploads/2021/05/food2102_7.png" alt=""
+								class="picture"></a>
+						
+					</div>
+
+					<div class="add-dish">
+						<table border="1">
 							<tr>
 								<th>主食</th>
 								<td>
@@ -87,16 +90,16 @@
 									</select>
 								</td>
 							</tr>
-						</div>
-				</table>
-						
-				<button type="submit" formmethod="get" formaction="/dishes/note" class="button-note">
-					詳細登録
-				</button>
-				<br><br><br><br><br><br>
-				<button class="normal"><a href="/dishes/add">登録</a></button>
+
+						</table>
+					</div>
+					<button type="submit" formmethod="get" formaction="/dishes/note" class="button-note">
+						詳細登録
+					</button>
+					<br><br><br><br>
+					<button class="normal"><a href="/dishes/add">登録</a></button>
 				</form>
-			
+
 			</div>
 		</main>
 		<hr>
