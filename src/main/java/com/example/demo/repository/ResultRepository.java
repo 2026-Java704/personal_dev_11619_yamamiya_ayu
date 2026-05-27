@@ -12,4 +12,5 @@ public interface ResultRepository extends JpaRepository<Result, Integer> {
 
 	List<Result> findByRecordDate(LocalDate recordDate);
 
+	List<Result> findByUserIdAndRecordDate(Integer sessionUserId, LocalDate recordDate);
 }

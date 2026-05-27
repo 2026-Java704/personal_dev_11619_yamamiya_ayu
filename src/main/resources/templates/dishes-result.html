@@ -13,7 +13,7 @@
 		<div class="box">
 			<h2>登録内容一覧</h2>
 			
-			<form action="/dishes/result" method="get">
+			<form th:action="@{/dishes/result}" method="get">
 				<input type="date" name="recordDate" class="form-control">
 				<button class="button-date">検索</button>
 			</form>
@@ -27,7 +27,7 @@
 					<th>乳製品</th>
 					<th>果物</th>
 					<th>メモ</th>
-					<th>点数</th>
+					<th>スコア</th>
 					<th></th>
 					<th></th>
 				</tr>

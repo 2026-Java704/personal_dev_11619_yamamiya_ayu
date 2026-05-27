@@ -47,22 +47,23 @@ main {
 	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
-.box-faq{
+.box-faq {
 	margin: 0 auto;
-		padding: 1rem;
-		padding-bottom: 1rem;
-		background: #fff;
-		border-radius: 12px;
-		box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+	padding: 1rem;
+	padding-bottom: 1rem;
+	background: #fff;
+	border-radius: 12px;
+	box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 	width: 45%;
-	
+
 	margin-right: auto;
-/*	//ここで中央寄せを指定する。*/
-	  margin-left : auto;
+	/*	//ここで中央寄せを指定する。*/
+	margin-left: auto;
 }
+
 .box-faq h2 {
 	margin-right: auto;
-	  margin-left : auto;
+	margin-left: auto;
 }
 
 
@@ -184,6 +185,8 @@ textarea {
 	resize: none;
 	width: 300px;
 	height: 200px;
+	margin-top: 10px;
+	margin-bottom: 20px;
 }
 
 .picture {
@@ -203,4 +206,3 @@ textarea {
 .answer {
 	width: 4%;
 }
-

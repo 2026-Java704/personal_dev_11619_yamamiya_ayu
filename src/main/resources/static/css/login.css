@@ -1,11 +1,11 @@
 /* ログインフォームのスタイル */
 body{
-	background-color: rgb(228, 254, 160);
+	background-color:  rgb(242, 253, 185);
+	
+main{
+	margin-top: 10%;
 }
 
-main{
-	margin-top: 74px
-}
 .login {
   max-width: 400px;
   margin: 0 auto;
@@ -97,3 +97,4 @@ main{
 .login .new-user a:hover {
   text-decoration: underline;
 }
+

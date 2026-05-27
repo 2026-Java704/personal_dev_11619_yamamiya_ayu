@@ -32,18 +32,33 @@ public class DishController {
 	public String index(
 			@RequestParam(defaultValue = "") LocalDate recordDate,
 			Model model) {
-		Integer userId = (Integer) session.getAttribute("userId");
-
-		List<Result> resultList = resultRepository.findByUserId(userId);
-		resultRepository.findByRecordDate(recordDate);
-
+		Integer sessionUserId = (Integer) session.getAttribute("userId");
+		if (sessionUserId == null) {
+			return "redirect:/login";
+		}
+		List<Result> list;
 		if (recordDate != null) {
-			resultList = resultRepository.findByRecordDate(recordDate);
+			list = resultRepository.findByUserIdAndRecordDate(sessionUserId, recordDate);
+		} else {
+			list = resultRepository.findByUserId(sessionUserId);
 		}
 
-		model.addAttribute("results", resultList);
+		model.addAttribute("recordDate", recordDate);
+		model.addAttribute("results", list);
 		return "dishes-result";
 	}
+	//		Integer userId = (Integer) session.getAttribute("userId");
+	//
+	//		List<Result> resultList = resultRepository.findByUserId(userId);
+	//		resultRepository.findByRecordDate(recordDate);
+	//
+	//		if (recordDate != null) {
+	//			resultList = resultRepository.findByUserIdAndRecordDate(userId, recordDate);
+	//		}
+	//
+	//		model.addAttribute("results", resultList);
+	//		return "dishes-result";
+	//	}
 
 	//FAQ表示
 	@GetMapping("/faq")
